@@ -8,13 +8,13 @@ const TodoList = () => {
   const colorDropdownRef = useRef<HTMLSelectElement>(null);
 
   const toggleCompletion = (index: number) => {
-    const updatedTodos = [...todos]; // Clone the todos array to avoid direct mutation
-    const todoToUpdate = updatedTodos[index]; // Find the todo item to update
+    const updatedTodos = [...todos];
+    const todoToUpdate = updatedTodos[index];
     const updatedTodo = {
       ...todoToUpdate,
       isCompleted: !todoToUpdate.isCompleted,
-    }; // Toggle isCompleted
-    updatedTodos.splice(index, 1, updatedTodo); // Replace the original todo with the updated one
+    };
+    updatedTodos.splice(index, 1, updatedTodo); 
     setTodos(updatedTodos);
   };
 
@@ -23,7 +23,7 @@ const TodoList = () => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const updatedTodos = [...todos];
-    updatedTodos[index].color = event.target.value; // Assuming todo items have a color property
+    updatedTodos[index].color = event.target.value;
     setTodos(updatedTodos);
 
     if (colorDropdownRef.current) {
